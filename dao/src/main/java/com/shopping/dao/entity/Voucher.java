@@ -5,15 +5,17 @@ import lombok.Data;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
  * @author Kris_Y
+ * 优惠券表
  * @date 2022年06月13日 16:38
  */
 
 @Data
-@Table(name = "voucher")
+@Table(name = "lr_voucher")
 public class Voucher implements Serializable {
 
     /**
@@ -44,12 +46,12 @@ public class Voucher implements Serializable {
     /**
      * 开始时间
      */
-    private LocalDateTime startTime;
+    private LocalDate startTime;
 
     /**
      * 结束时间
      */
-    private LocalDateTime endTime;
+    private LocalDate endTime;
 
     /**
      * 所需积分
@@ -69,7 +71,7 @@ public class Voucher implements Serializable {
     /**
      * 添加时间
      */
-    private LocalDateTime addtime;
+    private LocalDate addtime;
 
     /**
      * 优惠券类型
