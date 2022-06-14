@@ -74,7 +74,7 @@ public class Voucher implements Serializable {
     /**
      * 优惠券类型
      */
-    private Integer type; 
+    private Integer type;
 
     /**
      * 删除状态
