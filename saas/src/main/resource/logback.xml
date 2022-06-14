@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%thread] [%-5level] [%logger:%line] %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/var/log/webapps/whzcgzc/fqgz-backstage/fqgz-backstage.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>/var/log/webapps/whzcgzc/fqgz-backstage/fqgz-backstage.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%thread] [%-5level] [%logger:%line] %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <file>/var/log/webapps/whzcgzc/fqgz-backstage/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>/var/log/webapps/whzcgzc/fqgz-backstage/error.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%thread] [%-5level] [%logger:%line] %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <appender name="STORAGE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/var/log/webapps/whzcgzc/fqgz-backstage/mapu-storage.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>/var/log/webapps/whzcgzc/fqgz-backstage/mapu-storage.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%thread] [%-5level] [%logger:%line] %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.ibatis" level="DEBUG" />
+    <logger name="org.mybatis" level="DEBUG" />
+
+    <logger name="org.mapu.storage" level="INFO" additivity="false">
+        <appender-ref ref="STORAGE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.ebaoquan.fqgz.dal.mapper" level="DEBUG"></logger>
+
+    <root level="info">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ERROR_FILE"/>
+    </root>
+</configuration>

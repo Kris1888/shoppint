@@ -1,0 +1,23 @@
+server:
+  port: 10002
+servlet:
+  context-path: /saas
+
+#spring:
+#  resources:
+#    static-locations: file:E:/iwksp/mapu/fqgz/fqgz-sx/front-boss/trunk/docs/
+#  profiles:
+#    include:
+#      - devDal
+#      - devCom
+#  servlet:
+#    multipart:
+#      max-file-size: 100MB
+#      max-request-size: 100MB
+
+
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: false
+#  supportMethodsArguments: true
+#  params: count=countSql
